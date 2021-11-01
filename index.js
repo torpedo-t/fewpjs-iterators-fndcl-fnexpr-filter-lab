@@ -16,7 +16,9 @@ function fuzzyMatch(drivers, string) {
     // console.log('im hereeeee', drivers, string)
     return drivers.filter(function(el) {
         // console.log(el)
-        console.log(el.split(" ", 3))
+        // console.log(el.split(""))
+        let splitName = el.split("");
+        console.log(splitName.join("", 3))
         // return el.split(" ", 3).indexOf(string.split(" ", 3)) !== -1
     })
 }
