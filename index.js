@@ -4,7 +4,7 @@ function findMatching(drivers, string) {
     // console.log('im hereeeee', drivers, string)
     return drivers.filter(function(el) {
         return el.toLowerCase().indexOf(string.toLowerCase()) !== -1
-        console.log(string)
+        // console.log(string)
     })
 }
 
@@ -15,18 +15,22 @@ function fuzzyMatch(drivers, string) {
     // does not return drivers if only middle or ending letters match
     // console.log('im hereeeee', drivers, string)
     return drivers.filter(function(el) {
-        // console.log(el)
-        // console.log(el.split(""))
-        let splitName = el.split("");
-        console.log(splitName.join("", 3))
-        // return el.split(" ", 3).indexOf(string.split(" ", 3)) !== -1
+        let splitName = el.split("", 2);
+        let newString = splitName.join('');
+        // console.log(newString)
+        // console.log(string)
+        return newString === string ? newString.indexOf(string) !== 1 : undefined
     })
 }
-
 // Write matchName - This function takes an array of drivers and a string as arguments. 
 // In this function, each element of the drivers array is a JavaScript object that has a property of name. 
 // The function should return each element whose name property matches the provided string argument
 function matchName(drivers, string) {
-    // accesses the data structure to check if name matches
-    // console.log('im hereeeee', drivers, string)
+    // accesses the associative array aka object to check against it's name property 
+    // if string provided matches, return all matching instances
+    console.log('im hereeeee', drivers, string)
+    return drivers.filter(function(el) {
+        console.log(el)
+        return el.name === string ? el.name.indexOf(string) !== 1 : undefined
+    })
 }
